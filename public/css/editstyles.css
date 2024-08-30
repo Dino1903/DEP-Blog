@@ -1,0 +1,300 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    color: #333;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for header contents */
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #121111;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: #ffffff;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background 0.3s, color 0.3s;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    background: #f4f4f4;
+    color: #bcbaba;
+}
+
+/* Header Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Search Form */
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 7px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #ddd;
+    width: 200px;
+    box-sizing: border-box;
+    background: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/search.svg') no-repeat right 10px center;
+    background-size: 20px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.social-icon {
+    color: #000;
+    font-size: 20px;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+/* Profile Menu */
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #007bff;
+}
+
+.profile-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: border-top-color 0.3s;
+}
+
+.profile-arrow:hover {
+    border-top-color: #007bff;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #f4f4f4;
+}
+
+/* Show dropdown menu */
+.profile-menu.open .dropdown-menu {
+    display: block;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px;
+
+}
+
+/* Container margin to account for the fixed header */
+.container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 70px auto 0 auto;
+
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    margin-top: 0;
+    color: #2e2e2f;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+input[type="text"],
+textarea {
+    width: 100%;
+    min-height: 40px;
+
+    max-height: 300px;
+
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+
+    overflow: hidden;
+
+    transition: height 0.2s ease;
+
+}
+
+
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+.left-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-update {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-update:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+a.btn-cancel {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+a.btn-cancel:hover {
+    color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

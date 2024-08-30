@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog Post</title>
+    <link rel="stylesheet" href="/css/editstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function confirmDelete(event) {
+            if (!confirm('Are you sure you want to delete this blog post?')) {
+                event.preventDefault(); // Prevent form submission if canceled
+            }
+        }
+
+        function updateImagePreview() {
+            const imageUrl = document.getElementById('image').value;
+            const imagePreview = document.getElementById('image-preview');
+            if (imageUrl) {
+                imagePreview.src = imageUrl;
+                imagePreview.style.display = 'block'; // Show the image if URL is provided
+            } else {
+                imagePreview.style.display = 'none'; // Hide the image if URL is empty
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateImagePreview();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const textareas = document.querySelectorAll('textarea');
+            const inputs = document.querySelectorAll('input[type="text"]');
+
+            function adjustHeight(element) {
+                element.style.height = 'auto'; // Reset height to auto
+                element.style.height = element.scrollHeight + 'px'; // Set height to fit content
+            }
+
+            textareas.forEach(textarea => {
+                textarea.addEventListener('input', function () {
+                    adjustHeight(this);
+                });
+                adjustHeight(textarea); // Adjust height initially if there is pre-filled content
+            });
+
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    this.style.width = 'auto'; // Reset width to auto
+                    this.style.width = this.scrollWidth + 'px'; // Set width to fit content
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="navbar">
+                <a href="/" class="nav-link">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="/blogs" class="nav-link">All Blogs</a>
+            </div>
+            <div class="header-right">
+                <form class="search-form">
+                    <input type="text" class="search-input" placeholder="Search blogs">
+                </form>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="profile-menu">
+                    <img src="https://cdn2.f-cdn.com/contestentries/1440473/30778261/5bdd02db9ff4c_thumb900.jpg"
+                        alt="Profile Picture" class="profile-pic">
+                    <span class="profile-arrow"></span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Account Settings</a>
+                        <a href="#" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Edit Blog Post</h2>
+        <form action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
+            <input type="text" name="blog[title]" id="title" value="<%= blog.title %>" required>
+            <input type="text" name="blog[image]" id="image" value="<%= blog.image %>"
+                oninput="updateImagePreview()"><br>
+            <img id="image-preview" src="<%= blog.image %>" alt="Image preview"
+                style="display: <%= blog.image ? 'block' : 'none' %>; max-width: 100%; height: auto; margin-top: 10px;"><br>
+            <textarea name="blog[body]" id="body" required><%= blog.body %></textarea>
+
+            <!-- Button container for Update and Delete buttons -->
+            <div class="button-container">
+                <div class="left-buttons">
+                    <button type="submit" class="btn-update">Update Blog</button>
+                    <!-- Separate form for delete action -->
+                    <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" onsubmit="confirmDelete(event)">
+                        <button type="submit" class="btn-delete">Delete Blog</button>
+                    </form>
+                </div>
+                <a href="/blogs/<%= blog._id %>" class="btn-cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Container for header contents */
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #121111;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: 0;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background 0.3s, color 0.3s;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    background: #f4f4f4;
+    color: #5d2e58;
+}
+
+.nav-separator {
+    color: #000000;
+    margin: 0 10px;
+}
+
+/* Header Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Search Form */
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 7px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #ddd;
+    width: 200px;
+    box-sizing: border-box;
+    background: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/search.svg') no-repeat right 10px center;
+    background-size: 20px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.social-icon {
+    color: #000;
+    font-size: 20px;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+/* Profile Menu */
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #007bff;
+}
+
+.profile-arrow {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    /* Arrow color */
+    margin-left: 8px;
+    cursor: pointer;
+    transition: border-top-color 0.3s;
+}
+
+.profile-arrow:hover {
+    border-top-color: #007bff;
+    /* Arrow color on hover */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #f4f4f4;
+}
+
+/* Show dropdown menu */
+.profile-menu.open .dropdown-menu {
+    display: block;
+}
+
+/* Main Container */
+.container {
+    width: 85%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* Heading Container */
+.heading-container {
+    display: flex;
+    align-items: center;
+    /* Align items vertically in the center */
+    justify-content: space-between;
+    /* Space between heading and button */
+    margin: 14px 0;
+    /* Margin for spacing */
+}
+
+/* Heading Left Section */
+.heading-left {
+    display: flex;
+    flex-direction: column;
+    /* Align heading and subheading vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+}
+
+/* Page Heading */
+.page-heading {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    /* Remove default margin */
+}
+
+/* Subheading */
+.subheading {
+    font-size: 1.2em;
+    /* Slightly smaller than the main heading */
+    color: #888;
+    /* Grey color */
+    margin-top: 10px;
+    /* Space between heading and subheading */
+}
+
+/* Create New Blog Button */
+.btn-create {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 17px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-create:hover {
+    background: #0056b3;
+}
+
+/* Blog List Container */
+.blog-list-container {
+    background: #d3cbe478;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.blog-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+/* Blog Post Container */
+.blog-post {
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.blog-post:hover {
+    transform: scale(1.05);
+
+}
+
+/* Blog Image */
+.blog-image {
+    width: 100%;
+    height: 100px;
+
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Overlay Container */
+.blog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(143, 142, 142, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.blog-post {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.blog-post:hover .blog-overlay {
+    opacity: 1;
+}
+
+.btn-overlay {
+    color: #f8f8f8;
+    background-color: transparent;
+    border: 2px solid #f9f8f8;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.btn-overlay:hover {
+    background-color: #ffffff;
+    color: #3f3ffa;
+}
+
+/* Blog Overlay */
+.blog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Darker background for overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.blog-post:hover .blog-overlay {
+    opacity: 1;
+    /* Show overlay on hover */
+}
+
+.btn-overlay {
+    color: #f8f8f8;
+    background-color: transparent;
+    border: 2px solid #f9f8f8;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.btn-overlay:hover {
+    background-color: #ffffff;
+    color: #007bff;
+    /* Blue text color on hover */
+}
+
+/* Blog Title */
+.blog-post h3 {
+    font-size: 1em;
+    color: #333;
+    margin: 10px 0;
+    /* Space around the title */
+    text-transform: uppercase;
+    /* Convert text to uppercase */
+}
+
+.blog-post h3 a {
+    text-decoration: none;
+    color: #343435;
+    /* Blue color for the link */
+    transition: color 0.3s;
+}
+
+.blog-post h3 a:hover {
+    color: #444444;
+    /* Darker blue on hover */
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+/* Blog Text */
+.blog-post p {
+    font-size: 0.7em;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Blog Overlay */
+.blog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Darker background for overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.blog-post:hover .blog-overlay {
+    opacity: 1;
+}
+
+.btn-overlay {
+    color: #f8f8f8;
+    background-color: transparent;
+    border: 2px solid #f9f8f8;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.btn-overlay:hover {
+    background-color: #ffffff;
+    color: #007bff;
+}
